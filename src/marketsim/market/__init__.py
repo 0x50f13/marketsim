@@ -31,7 +31,7 @@ class Market:
         return self.d_current
 
     def get_price(self):
-        # FIXME: Research seem not to specify any price model other to linear
+        # 
         return self.f*self.get_dividends()+self.g
 
     def simulate(self):
