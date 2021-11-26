@@ -1,4 +1,4 @@
-from marketsim.agent import Agent
+from agent import Agent
 from math import *
 
 class RationalAgent(Agent):

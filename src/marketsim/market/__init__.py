@@ -15,13 +15,14 @@ class Market:
         self.sigma2 = sigma2
         self.f = f
         self.g = g
+        self.rho = rho
         self.agents = []
         self.demand_history = []
         self.demand = 0.0
         self.d_current = random.normalvariate(self.d, self.sigma2) # From https://python.quantecon.org/ar1_processes.html
 
     def add_agent(self, agent):
-        agent.set_parent(agent)
+        agent.set_parent(self)
         self.agents.append(agent)
 
     def get_dividends(self):

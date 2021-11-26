@@ -37,6 +37,6 @@ class Agent:
         self.x += Xi
         return Xi
 
-    def __call__(self, d: float, p: float -> float: # Magic warpper for demand
+    def __call__(self, d: float, p: float) -> float: # Magic warpper for demand
         return self.demand(p,d)
 
