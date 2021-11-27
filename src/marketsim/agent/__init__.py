@@ -36,8 +36,8 @@ class Agent:
             self.w_history.append(0.0) # FIXME: Research does not sepcify value of W_{i,0}
         Ep = self._predict_price(p,d)
         Xi = (Ep-p*(1+self.parent.r))/(self._lambda*self.parent.sigma2)
-        print(Ep)
-        print(p*(1+self.parent.r))
+        print("Agent expectation=",Ep)
+        print("Agent expectation of risk-free=",p*(1+self.parent.r))
         Xi = relu(Xi)
         self.x += Xi
         return Xi

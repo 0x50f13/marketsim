@@ -20,7 +20,8 @@ class Market:
         self.demand_history = []
         self.demand = 0.0
         self.d_current = random.normalvariate(self.d, self.sigma2) # From https://python.quantecon.org/ar1_processes.html
-
+        self.fair_price = 1.0
+        self.demand_factor = 0.001
     def add_agent(self, agent):
         agent.set_parent(self)
         self.agents.append(agent)
@@ -32,15 +33,18 @@ class Market:
         return self.d_current
 
     def get_price(self): 
-        return self.get_dividends()+0.015*self.demand/len(self.agents)
+        d = self.get_dividends()
+        return d+self.fair_price+self.demand_factor*self.demand
 
     def simulate(self):
         """
          Simulates one iteration of market
         """ 
         p = self.get_price()
+        print("price=",p)
         demand_current = 0.0
+        assert self.d_current > 0
         for agent in self.agents:
-            demand_current += agent(p, self.d)
+            demand_current += agent(p, self.d_current)
         self.demand_history.append(demand_current)
         self.demand = demand_current
