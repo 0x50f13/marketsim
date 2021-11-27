@@ -31,9 +31,8 @@ class Market:
         self.d_current = self.d + self.rho*(self.d_current-self.d)+random.normalvariate(0, self.sigma2)
         return self.d_current
 
-    def get_price(self):
-        # 
-        return self.f*self.get_dividends()+self.g
+    def get_price(self): 
+        return self.get_dividends()+1.0
 
     def simulate(self):
         """
