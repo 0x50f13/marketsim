@@ -1,5 +1,6 @@
-from agent import Agent
 from math import *
+
+from marketsim.agent import Agent
 
 class RationalAgent(Agent):
     def _predict_price(self, p: float, d: float):
