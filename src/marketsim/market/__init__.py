@@ -32,7 +32,7 @@ class Market:
         return self.d_current
 
     def get_price(self): 
-        return self.get_dividends()+1.0
+        return self.get_dividends()+0.015*self.demand/len(self.agents)
 
     def simulate(self):
         """
