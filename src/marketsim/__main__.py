@@ -3,11 +3,16 @@ import matplotlib.pyplot as plt
 from marketsim.market import Market
 from marketsim.agent.rational import RationalAgent
 from marketsim.agent.anchoring import AnchoringAgent
+
 market = Market(2.0)
 
 
-for i in range(10):
-    market.add_agent(AnchoringAgent())
+#for i in range(100):
+#    market.add_agent(AnchoringAgent())
+
+for i in range(100):
+    market.add_agent(RationalAgent())
+
 
 for i in range(300):
     market.simulate(i)

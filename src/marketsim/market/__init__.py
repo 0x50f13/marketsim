@@ -37,7 +37,7 @@ class Market:
 
     def get_price(self): 
         d = self.get_dividends()
-        return d+self.fair_price+self.demand_factor*self.demand
+        return self.fair_price+(1.0/len(self.agents))*self.demand_factor*self.demand
 
     def simulate(self, i=None):
         """
